@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smart OCR Question Answering</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+    body { background: #f7f9fc; color: #222; }
+
+    header {
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 { font-size: 42px; margin-bottom: 10px; }
+    header p { font-size: 18px; opacity: 0.95; }
+
+    .cta-buttons {
+      margin-top: 30px;
+    }
+
+    .cta-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 14px 28px;
+      background: white;
+      color: #4f46e5;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+
+    .cta-buttons a.secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .cta-buttons a:hover { transform: translateY(-2px); }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-box {
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+
+    .feature-box h3 { margin-bottom: 10px; color: #4f46e5; }
+
+    .how-it-works {
+      background: #eef2ff;
+      border-radius: 16px;
+      padding: 50px 30px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .step {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #111827;
+      color: #d1d5db;
+      margin-top: 60px;
+    }
+
+    footer a { color: #93c5fd; text-decoration: none; }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Smart OCR Question Answering System</h1>
+    <p>Upload documents. Ask questions. Get instant answers.</p>
+
+    <div class="cta-buttons">
+      <a href="{% url 'login' %}">Login</a>
+      <a href="{% url 'signup' %}" class="secondary">Get Started</a>
+    </div>
+  </header>
+
+  <section>
+    <h2 style="text-align:center; margin-bottom:40px;">Key Features</h2>
+    <div class="features">
+      <div class="feature-box">
+        <h3> OCR Document Upload</h3>
+        <p>Upload scanned images or documents and extract text automatically.</p>
+      </div>
+      <div class="feature-box">
+        <h3> Smart Question Answering</h3>
+        <p>Ask natural language questions and get direct answers from your document.</p>
+      </div>
+      <div class="feature-box">
+        <h3> User Login & History</h3>
+        <p>Each user sees only their own uploaded documents and past queries.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Fast & Lightweight</h3>
+        <p>No heavy ML dependency required. Works smoothly on local systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <h2 style="text-align:center;">How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <h3>1. Sign Up / Login</h3>
+        <p>Create an account and securely log in.</p>
+      </div>
+      <div class="step">
+        <h3>2. Upload Document</h3>
+        <p>Upload an image or scanned document for OCR processing.</p>
+      </div>
+      <div class="step">
+        <h3>3. Ask Questions</h3>
+        <p>Ask questions in English and get accurate answers instantly.</p>
+      </div>
+      <div class="step">
+        <h3>4. View History</h3>
+        <p>Access your previously uploaded documents anytime.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Smart OCR QA System</p>
+    <p>Built with <strong>Django</strong> </p>
+  </footer>
+
+</body>
+</html>

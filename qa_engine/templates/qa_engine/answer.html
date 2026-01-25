@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Answer</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #4f46e5, #6366f1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .qa-container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 750px;
+            padding: 35px 40px;
+            border-radius: 18px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1f2937;
+        }
+
+        .qa-box {
+            background: #f9fafb;
+            border-left: 5px solid #4f46e5;
+            padding: 20px 22px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .qa-box p {
+            margin: 10px 0;
+            font-size: 15px;
+            color: #374151;
+            line-height: 1.6;
+        }
+
+        .qa-box strong {
+            color: #111827;
+        }
+
+        .meta-info {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #d1d5db;
+            font-size: 14px;
+            color: #4b5563;
+        }
+
+        .actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .actions a {
+            flex: 1;
+            text-align: center;
+            text-decoration: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .ask-btn {
+            background: #4f46e5;
+            color: #ffffff;
+        }
+
+        .ask-btn:hover {
+            background: #4338ca;
+        }
+
+        .back-btn {
+            background: #e5e7eb;
+            color: #1f2937;
+        }
+
+        .back-btn:hover {
+            background: #d1d5db;
+        }
+
+        @media (max-width: 520px) {
+            .qa-container {
+                padding: 28px 24px;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="qa-container">
+        <h1>Question & Answer</h1>
+
+        <div class="qa-box">
+            <p><strong>Question:</strong><br> {{ question }}</p>
+            <p><strong>Answer:</strong><br> {{ answer }}</p>
+
+            {% if page %}
+            <div class="meta-info">
+                <p><strong>Page Number:</strong> {{ page }}</p>
+                <p><strong>Line Number:</strong> {{ line }}</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="actions">
+            <a href="{% url 'ask_question' %}" class="ask-btn">
+                Ask Another Question
+            </a>
+            <a href="{% url 'document_list' %}" class="back-btn">
+                Back to Documents
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

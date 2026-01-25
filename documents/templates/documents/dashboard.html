@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #4f46e5, #6366f1);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .dashboard-container {
+            max-width: 900px;
+            margin: auto;
+            background: #ffffff;
+            padding: 35px 40px;
+            border-radius: 18px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1f2937;
+        }
+
+        .messages {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .messages li {
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .messages li.error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .messages li.success {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .doc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .doc-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f9fafb;
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .doc-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .doc-title {
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .doc-date {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .doc-actions a {
+            text-decoration: none;
+            padding: 8px 14px;
+            background: #4f46e5;
+            color: white;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .doc-actions a:hover {
+            background: #4338ca;
+        }
+
+        .bottom-actions {
+            margin-top: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .upload-link {
+            text-decoration: none;
+            padding: 12px 18px;
+            background: #16a34a;
+            color: white;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .upload-link:hover {
+            background: #15803d;
+        }
+
+        .logout-form button {
+            padding: 12px 18px;
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .logout-form button:hover {
+            background: #dc2626;
+        }
+
+        @media (max-width: 600px) {
+            .doc-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .bottom-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .upload-link,
+            .logout-form button {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <h1>Your Documents</h1>
+
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        {{ message }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <ul class="doc-list">
+            {% for doc in documents %}
+                <li class="doc-item">
+                    <div class="doc-info">
+                        <span class="doc-title">{{ doc.title }}</span>
+                        <span class="doc-date">Uploaded: {{ doc.uploaded_at }}</span>
+                    </div>
+                    <div class="doc-actions">
+                        <a href="{% url 'ask_question' %}?doc={{ doc.id }}">Ask me</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div class="bottom-actions">
+            <a href="{% url 'upload_document' %}" class="upload-link"> Upload New Document</a>
+
+            <form method="post" action="{% url 'logout' %}" class="logout-form">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
