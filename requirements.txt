@@ -3,3 +3,4 @@ gunicorn
 pillow
 pytesseract
 mysqlclient>=2.2.1
+PyMuPDF>=1.23.0
