@@ -1,6 +1,7 @@
 Django>=4.2,<5.1
 gunicorn
-pillow
-pytesseract
 mysqlclient>=2.2.1
 PyMuPDF>=1.23.0
+opencv-python-headless>=4.9.0
+Pillow
+numpy
