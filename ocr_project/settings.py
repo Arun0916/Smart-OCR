@@ -76,14 +76,25 @@ WSGI_APPLICATION = 'ocr_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'ocr_db',
+#         'USER': 'root',
+#         'PASSWORD':'pass@123',
+#         'HOST':'localhost',
+#         'PORT':'3306',
+#     }
+# }
+import os
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ocr_db',
-        'USER': 'root',
-        'PASSWORD':'pass@123',
-        'HOST':'localhost',
-        'PORT':'3306',
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": os.environ.get("ocr_db"),
+        "USER": os.environ.get("root"),
+        "PASSWORD": os.environ.get("pass@123"),
+        "HOST": os.environ.get("localhost"),
+        "PORT": os.environ.get("3306"),
     }
 }
 

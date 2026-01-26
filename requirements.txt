@@ -2,5 +2,6 @@ Django>=4.2
 gunicorn
 pillow
 pytesseract
-mysqlclient>=2.2.1
-pymysql
+#mysqlclient>=2.2.1
+#pymysql
+PyMySQL>=1.1.0
