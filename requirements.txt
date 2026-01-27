@@ -5,3 +5,11 @@ PyMuPDF>=1.23.0
 opencv-python-headless>=4.9.0
 Pillow
 numpy
+pytesseract
+faiss-cpu
+sentence-transformers
+scikit-learn
+transformers
+torch
+torchvision
+torchaudio

@@ -76,17 +76,13 @@ WSGI_APPLICATION = 'ocr_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-import os
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": os.environ.get("ocr_db"),
-        "USER": os.environ.get("root"),
-        "PASSWORD": os.environ.get("pass@123"),
-        "HOST": os.environ.get("localhost"),
-        "PORT": os.environ.get("3306"),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
