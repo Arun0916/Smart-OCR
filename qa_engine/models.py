@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from documents.models import Page, OCRLine
+from documents.models import Page, OCRLine, Document
 
 class Question(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

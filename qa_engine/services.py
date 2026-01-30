@@ -7,7 +7,6 @@ import os
 
 # Try to import sentence_transformers, but allow graceful degradation if unavailable
 try:
-    from sentence_transformers import SentenceTransformer
     SENTENCE_TRANSFORMERS_AVAILABLE = True
 except (ImportError, OSError) as e:
     SENTENCE_TRANSFORMERS_AVAILABLE = False
